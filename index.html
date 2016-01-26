@@ -38,15 +38,27 @@
                   <label for="new-state">State</label>
                   <input type="text" class="form-control new-state">
                 </div>
-                <div class="radios">
-                  <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="radioHome" value="option1"> Home
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="radioOffice" value="option2"> Office
-                  </label><label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="radioPO" value="option3"> P.O. Box
-                  </label>
+                <div class="row radios">
+                  <div class="col-xs-2">
+                    <label class="radio-inline">
+                      <input type="radio" name="inlineRadio" id="radioHome" value="Home" checked> Home
+                    </label>
+                  </div>
+                  <div class="col-xs-2">
+                    <label class="radio-inline">
+                      <input type="radio" name="inlineRadio" id="radioOffice" value="Office"> Office
+                    </label><label class="radio-inline">
+                  </div>
+                  <div class="col-xs-3">
+                      <input type="radio" name="inlineRadio" id="radioPO" value="P.O"> P.O. Box
+                    </label>
+                  </div>
+                  <div class="col-xs-5">
+                    <label class="radio-inline">
+                      <input type="radio" name="inlineRadio" id="radioOther" value="">
+                        <input class="form-control" type="text" id="inputOther" placeholder="Other">
+                    </label>
+                  </div>
                 </div>
 
               </div>
