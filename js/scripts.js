@@ -21,7 +21,7 @@ Address.prototype.fullAddress = function () {
 
 $(document).ready(function() {
   $("#add-address").click(function() {
-   $("#new-addresses").append('<div class="new-address">' +
+   $("#addressFields").append('<div class="new-address">' +
                                 '<div class="form-group">' +
                                   '<label for="new-street">Street</label>' +
                                   '<input type="text" class="form-control new-street">' +
@@ -53,9 +53,6 @@ $(document).ready(function() {
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>")
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-
     $(".contact").last().click(function() {
       $("#show-contact").show();
       $("#show-contact h2").text(newContact.fullName());
@@ -67,6 +64,12 @@ $(document).ready(function() {
       });
     });
 
-  event.preventDefault();
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input.new-street").val("");
+    $("input.new-city").val("");
+    $("input.new-state").val("");
+
+    event.preventDefault();
   });
 });
