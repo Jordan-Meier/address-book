@@ -10,3 +10,7 @@
 .contact:hover {
   text-decoration: underline;
 }
+
+.btn {
+  margin-top: 10px;
+}
