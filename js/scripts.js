@@ -42,16 +42,16 @@ $(document).ready(function() {
                                   '<label for="new-state">State</label>' +
                                   '<input type="text" class="form-control new-state">' +
                                 '</div>' +
-                              '</div>' +
-                              '<div class="radios">' +
-                                '<label class="radio-inline">' +
-                                  '<input type="radio" name="inlineRadioOptions" id="radioHome" value="option1"> Home' +
-                                '</label>' +
-                                '<label class="radio-inline">' +
-                                  '<input type="radio" name="inlineRadioOptions" id="radioOffice" value="option2"> Office' +
-                                '</label><label class="radio-inline">' +
-                                  '<input type="radio" name="inlineRadioOptions" id="radioPO" value="option3"> P.O. Box' +
-                                '</label>' +
+                                '<div class="radios">' +
+                                  '<label class="radio-inline">' +
+                                    '<input type="radio" name="inlineRadio[1]" id="radioHome" value="Home"> Home' +
+                                    '</label>' +
+                                  '<label class="radio-inline">' +
+                                    '<input type="radio" name="inlineRadio[1]" id="radioOffice" value="Office"> Office' +
+                                  '</label><label class="radio-inline">' +
+                                    '<input type="radio" name="inlineRadio[1]" id="radioPO" value="P.O"> P.O. Box' +
+                                  '</label>' +
+                                '</div>' +
                               '</div>');
  });
 
@@ -61,12 +61,21 @@ $(document).ready(function() {
     var inputLastName = $("input#new-last-name").val();
     var newContact = new Contact(inputFirstName, inputLastName);
 
-    $(".new-address").each(function() {
+    $(".new-address").each(function(index) {
       var inputtedStreet = $(this).find("input.new-street").val();
       var inputtedCity = $(this).find("input.new-city").val();
       var inputtedState = $(this).find("input.new-state").val();
-      var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState);
+      var inputtedType = $(this).find("input[name='inlineRadio[" + index + "]']:checked").val();
+
+      // if (inputtedType === 'Other') {
+      //   var inputtedOther = $("input#inputOther").val();
+      //   inputtedType = inputtedOther;
+      // } else {
+      //
+      // }
+      var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState, inputtedType);
       newContact.addresses.push(newAddress);
+
     });
 
     clearInputs();
@@ -83,7 +92,6 @@ $(document).ready(function() {
         $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
       });
     });
-    debugger;
 
     event.preventDefault();
   });
