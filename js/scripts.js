@@ -8,14 +8,15 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
-function Address(street, city, state) {
+function Address(street, city, state, addressType) {
   this.street = street;
   this.city = city;
   this.state = state;
+  this.addressType = addressType;
 }
 
 Address.prototype.fullAddress = function () {
-  return this.street + ", " + this.city + ", " + this.state;
+  return this.addressType + ": " + this.street + ", " + this.city + ", " + this.state;
 }
 
 function clearInputs() {
@@ -41,6 +42,16 @@ $(document).ready(function() {
                                   '<label for="new-state">State</label>' +
                                   '<input type="text" class="form-control new-state">' +
                                 '</div>' +
+                              '</div>' +
+                              '<div class="radios">' +
+                                '<label class="radio-inline">' +
+                                  '<input type="radio" name="inlineRadioOptions" id="radioHome" value="option1"> Home' +
+                                '</label>' +
+                                '<label class="radio-inline">' +
+                                  '<input type="radio" name="inlineRadioOptions" id="radioOffice" value="option2"> Office' +
+                                '</label><label class="radio-inline">' +
+                                  '<input type="radio" name="inlineRadioOptions" id="radioPO" value="option3"> P.O. Box' +
+                                '</label>' +
                               '</div>');
  });
 
